@@ -17,8 +17,8 @@ import (
 	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/retgits/fdio/cmd"
 	"github.com/retgits/fdio/database"
+	"github.com/retgits/fdio/util"
 )
 
 // Variables
@@ -87,7 +87,7 @@ func handler(request events.CloudWatchEvent) error {
 	httpHeader := http.Header{"Authorization": {fmt.Sprintf("token %s", githubToken)}}
 
 	// Crawl for new activities
-	err = cmd.Crawl(httpHeader, db, crawlTimeout, contribTypeActivity)
+	err = util.Crawl(httpHeader, db, crawlTimeout, contribTypeActivity)
 	if err != nil {
 		log.Printf("Error while crawling for %s: %s\n", contribTypeActivity, err.Error())
 		return err
@@ -95,7 +95,7 @@ func handler(request events.CloudWatchEvent) error {
 	log.Printf("Completed crawling for %s!\n", contribTypeActivity)
 
 	// Crawl for new triggers
-	err = cmd.Crawl(httpHeader, db, crawlTimeout, contribTypeTrigger)
+	err = util.Crawl(httpHeader, db, crawlTimeout, contribTypeTrigger)
 	if err != nil {
 		log.Printf("Error while crawling for %s: %s\n", contribTypeTrigger, err.Error())
 		return err
