@@ -17,6 +17,8 @@ Resources:
         Variables:
           region: us-west-2
           s3bucket: retgits-fdio
+      Tags:
+        version: "0.0.2"
       Events:
         fdio:
           Type: Schedule
