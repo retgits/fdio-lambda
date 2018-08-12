@@ -42,7 +42,7 @@ const (
 	// The name for the activity type when crawling
 	contribTypeActivity = "Activity"
 	// The number of hours between now and the last repo update
-	crawlTimeout = 36
+	crawlTimeout = 48
 )
 
 // The handler function is executed every time that a new Lambda event is received.
