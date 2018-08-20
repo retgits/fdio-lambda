@@ -26,7 +26,7 @@ var (
 	// The region in which the Lambda function is deployed
 	awsRegion = util.GetEnvKey("region", "us-west-2")
 	// The name of the bucket that has the csv file
-	s3Bucket = util.GetEnvKey("s3Bucket", "retgits-bitly")
+	s3Bucket = util.GetEnvKey("s3Bucket", "retgits-fdio")
 	// The temp folder to store the database file while working
 	tempFolder = util.GetEnvKey("tempFolder", ".")
 )
